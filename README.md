@@ -128,3 +128,32 @@ Port: "COMx"
 
 - [Arduino 官方：在 Arduino IDE 2 中安装库](https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-installing-a-library)
 - [Arduino IDE 添加库文件教程（CSDN）](https://blog.csdn.net/2301_80596293/article/details/158538480)
+
+### 6. 读取卡片 UID
+
+项目提供了一个用于检查 RC522 读卡模块并读取卡片 UID 的示例程序：
+
+- [read/read.ino](read/read.ino)
+
+将开发板、RC522 模块和电脑连接好后，在 Arduino IDE 中打开 `read/read.ino`，确认开发板选择为 `Arduino UNO`，端口选择为开发板对应的 `COMx`，然后点击上传。
+
+上传完成后，打开 **Serial Monitor（串口监视器）**，波特率选择 `9600 baud`。
+
+如果串口监视器中出现：
+
+```text
+Firmware Version: 0x92 = v2.0
+```
+
+说明 RC522 读卡模块已经能够被 Arduino 正常识别。此时将已获授权的校园卡放在 RC522 模块附近，程序会自动读取卡片信息，并输出类似：
+
+```text
+UID: XX XX XX XX
+Card Type: MIFARE 1K
+```
+
+其中 `UID` 是本次读取到的卡片标识信息，可在串口监视器中记录。不同卡片的 UID 长度可能不同，实际输出以串口监视器显示为准。
+
+如果没有输出 `Firmware Version`，或显示版本为 `0x00`、`0xFF`，请重新检查 RC522 的接线、`3.3V` 供电、开发板型号、端口和 `MFRC522` 库安装情况。
+
+> 请只读取和记录自己拥有或获得明确授权的卡片信息，并遵守校园管理规定和当地法律。
