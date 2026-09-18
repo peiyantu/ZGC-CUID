@@ -157,3 +157,24 @@ Card Type: MIFARE 1K
 如果没有输出 `Firmware Version`，或显示版本为 `0x00`、`0xFF`，请重新检查 RC522 的接线、`3.3V` 供电、开发板型号、端口和 `MFRC522` 库安装情况。
 
 > 请只读取和记录自己拥有或获得明确授权的卡片信息，并遵守校园管理规定和当地法律。
+
+### 7. 安全写入测试数据
+
+本项目不提供改写卡片 UID、修改 Block 0 或复制校园卡/门禁卡身份的程序。
+
+如果需要验证 RC522 的写卡功能，可以使用安全示例：
+
+- [write-safe/write-safe.ino](write-safe/write-safe.ino)
+
+这个示例只向自己拥有的 MIFARE Classic 测试卡的普通数据块 `Block 4` 写入 `ZGC-CUID TEST` 测试文本，然后回读验证。它不会修改 UID，也不会写入卡片制造商块 `Block 0`。
+
+使用方法：
+
+1. 在 Arduino IDE 中打开 `write-safe/write-safe.ino`。
+2. 选择 `Arduino UNO` 和正确的 `COMx` 端口。
+3. 上传程序。
+4. 打开串口监视器，波特率选择 `9600 baud`。
+5. 将已授权的 MIFARE Classic 测试卡放在 RC522 附近。
+6. 观察 `Write successful.` 和 `Block 4 data:` 输出。
+
+> 请勿使用校园卡、门禁卡或其他非本人所有的凭证进行写入、复制或身份修改。
