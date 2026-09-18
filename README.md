@@ -32,6 +32,54 @@
 
 ![RC522 与 Arduino Uno 接线示意图](rc522-uno-wiring.jpg)
 
+## 下载 Arduino IDE 并配置开发板和端口
+
+### 1. 下载并安装 Arduino IDE
+
+从 [Arduino 官方软件下载页面](https://www.arduino.cc/en/software) 下载 Arduino IDE 2.x 并完成安装。
+
+本项目使用 Arduino Uno 开发板，建议使用 USB 数据线将开发板连接到电脑。仅支持充电的 USB 线无法完成程序上传。
+
+### 2. 选择开发板
+
+打开 Arduino IDE，在顶部菜单中依次选择：
+
+```text
+Tools
+└── Board
+    └── Arduino AVR Boards
+        └── Arduino UNO
+```
+
+如菜单中没有 `Arduino AVR Boards`，先打开 `Tools → Board → Boards Manager...`，搜索并安装 `Arduino AVR Boards`。
+
+![Arduino IDE 选择 Arduino UNO 开发板](arduino-ide-select-board.png)
+
+### 3. 选择端口
+
+开发板连接电脑后，在顶部菜单中依次选择：
+
+```text
+Tools
+└── Port
+    └── 选择开发板对应的 COM 端口
+```
+
+截图中的端口是 `COM5`，但每台电脑分配的端口号可能不同。建议先拔下开发板，再重新插入，观察 `Tools → Port` 菜单中新出现的端口，然后选择它。
+
+![Arduino IDE 选择开发板端口](arduino-ide-select-port.png)
+
+配置完成后，Arduino IDE 的菜单中应显示类似以下信息：
+
+```text
+Board: "Arduino UNO"
+Port: "COMx"
+```
+
+其中 `COMx` 是电脑实际分配给开发板的端口号。
+
+如果 `Tools → Port` 中没有任何端口，请检查 USB 数据线、USB 接口和开发板电源指示灯；兼容版开发板还可能需要安装对应的 USB 转串口驱动。
+
 ## 硬件准备检查
 
 - [ ] NFC / CUID 卡片或卡贴
