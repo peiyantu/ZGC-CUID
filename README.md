@@ -12,6 +12,26 @@
 | 4 | 13.56 MHz RFID 读卡 | CZ321 | MFRC-522 RC522 RFID 射频 IC 卡感应模块读卡刷卡，送 S50 复旦卡 PN532 | [打开淘宝商品](https://e.tb.cn/h.8sSJT6o17CTNK5y?tk=o3lXTQQTpKy) | ![RC522 RFID 读卡模块](https://i5.walmartimages.com/asr/4ea8a7a9-ca5c-421a-b58f-6b036af36389.659500a3dea43b0f21770f24f553c7b4.jpeg?odnBg=FFFFFF&odnHeight=612&odnWidth=612) | 常见 SPI 接口 RFID 读卡模块，适合与 Arduino 配合测试 |
 | 5 | 项目主控开发板 | CZ007 | zave 适用 Arduino Nano UNO 开发板套件 R3 改进版 ATmega328P 单片机 | [打开淘宝商品](https://e.tb.cn/h.8udbibh7TAbVOjM?tk=TewSTQQTAGj) | ![Arduino Nano ATmega328P 开发板](https://cdn-cloudflare.meidianbang.cn/comdata/51404/product/20180605152111759825D35AA31156_b.jpg) | 用于运行项目固件并控制 RFID / NFC 相关模块 |
 
+## RC522 与 Arduino Uno 接线方式
+
+左侧为 RFID-RC522 引脚，右侧为 Arduino Uno 引脚。
+
+| RFID-RC522 引脚 | Arduino Uno 引脚 |
+| --- | --- |
+| RST | 9 |
+| SDA (SS) | 10 |
+| MOSI | 11 |
+| MISO | 12 |
+| SCK | 13 |
+| 3.3V | 3.3V |
+| GND | GND |
+
+> 注意：RC522 模块使用 3.3V 供电，请以具体模块规格为准，不要默认接入 Uno 的 5V。
+
+### 接线示意图
+
+![RC522 与 Arduino Uno 接线示意图](rc522-uno-wiring.jpg)
+
 ## 硬件准备检查
 
 - [ ] NFC / CUID 卡片或卡贴
