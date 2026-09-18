@@ -12,7 +12,7 @@
 | 4 | 13.56 MHz RFID 读卡 | CZ321 | MFRC-522 RC522 RFID 射频 IC 卡感应模块读卡刷卡，送 S50 复旦卡 PN532 | [打开淘宝商品](https://e.tb.cn/h.8sSJT6o17CTNK5y?tk=o3lXTQQTpKy) | ![RC522 RFID 读卡模块](https://i5.walmartimages.com/asr/4ea8a7a9-ca5c-421a-b58f-6b036af36389.659500a3dea43b0f21770f24f553c7b4.jpeg?odnBg=FFFFFF&odnHeight=612&odnWidth=612) | 常见 SPI 接口 RFID 读卡模块，适合与 Arduino 配合测试 |
 | 5 | 项目主控开发板 | CZ007 | zave 适用 Arduino Nano UNO 开发板套件 R3 改进版 ATmega328P 单片机 | [打开淘宝商品](https://e.tb.cn/h.8udbibh7TAbVOjM?tk=TewSTQQTAGj) | ![Arduino Nano ATmega328P 开发板](https://cdn-cloudflare.meidianbang.cn/comdata/51404/product/20180605152111759825D35AA31156_b.jpg) | 用于运行项目固件并控制 RFID / NFC 相关模块 |
 
-## 硬件准备检查
+## A. 硬件准备检查
 
 - [ ] NFC / CUID 卡片或卡贴
 - [ ] 40P 杜邦线
@@ -22,7 +22,7 @@
 - [ ] 确认开发板电压、接口定义和模块接线方式
 - [ ] 确认项目涉及的卡片读写行为符合当地法律、设备管理规定和授权范围
 
-## RC522 与 Arduino Uno 接线方式
+## B. RC522 与 Arduino Uno 接线方式
 
 左侧为 RFID-RC522 引脚，右侧为 Arduino Uno 引脚。
 
@@ -44,7 +44,7 @@
 
 > 接线确认无误后，如果读卡模块仍然异常，可以先断电检查并轻按模块或接线端子，临时确认是否存在接触不良。测试时应避免带电移动导线或让相邻引脚短路；更稳定的做法是重新插紧杜邦线，或对接线进行焊接固定。
 
-## 下载 Arduino IDE 并配置开发板和端口
+## C. 下载 Arduino IDE 并配置开发板和端口
 
 ### 1. 下载并安装 Arduino IDE
 
@@ -180,3 +180,11 @@ Card Type: MIFARE 1K
 6. 观察 `Write successful.` 和 `Block 4 data:` 输出。
 
 > 请勿使用校园卡、门禁卡或其他非本人所有的凭证进行写入、复制或身份修改。
+
+## D. 致谢
+
+- 感谢 [CSDN：arduino IDE 添加库文件](https://blog.csdn.net/2301_80596293/article/details/158538480)，本文关于 Arduino IDE 库安装和 `MFRC522` 库配置的部分内容参考了该教程。
+- 感谢 [Arduino 官方文档](https://docs.arduino.cc/)，为 Arduino IDE、开发板、端口和库管理相关说明提供参考。
+- 感谢 [MFRC522 Arduino RFID Library](https://github.com/miguelbalboa/rfid) 及其维护者，为 RC522 读卡示例提供库支持。
+
+本文内容用于学习和合法授权范围内的硬件实验，请遵守相关设备管理规定和当地法律。
