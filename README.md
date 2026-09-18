@@ -89,3 +89,42 @@ Port: "COMx"
 其中 `COMx` 是电脑实际分配给开发板的端口号。
 
 如果 `Tools → Port` 中没有任何端口，请检查 USB 数据线、USB 接口和开发板电源指示灯；兼容版开发板还可能需要安装对应的 USB 转串口驱动。
+
+### 4. CH435 USB 转串口端口配置
+
+如果你的兼容版 Arduino Uno 使用 CH435 作为 USB 转串口芯片，端口配置方法如下：
+
+1. 使用 USB 数据线连接开发板和电脑。
+2. 打开 Windows **设备管理器**，在“端口（COM 和 LPT）”中找到新出现的 USB 串口设备，并记下对应的 `COMx` 端口号。
+3. 打开 Arduino IDE，选择 `Tools → Port → COMx`。
+4. 开发板类型仍然选择 `Arduino UNO`，CH435 只负责 USB 与 Arduino 串口之间的通信，不需要在开发板列表中单独选择。
+
+如果设备管理器中没有出现新的 COM 端口，请检查 CH435 对应驱动、USB 数据线和开发板供电。建议先拔下开发板，再重新插入，通过端口列表中新增或消失的项目确认正确端口。
+
+参考教程：
+
+- [Arduino 官方：在 Arduino IDE 中选择开发板和端口](https://support.arduino.cc/hc/en-us/articles/4406856349970-Select-board-and-port-in-Arduino-IDE)
+- [沁恒官方：USB 转串口芯片 Windows 串口驱动安装](https://www.wch.cn/)
+
+### 5. 安装 MFRC522 库
+
+本项目代码需要使用 `MFRC522` 库，否则编译时可能出现 `MFRC522.h: No such file or directory` 等头文件缺失错误。该库可以直接通过 Arduino IDE 内置的库管理器安装，不需要手动复制头文件。
+
+安装步骤：
+
+1. 打开 Arduino IDE。
+2. 选择 `Sketch → Include Library → Manage Libraries...`，也可以点击左侧的库管理器图标。
+3. 在搜索框中输入 `MFRC522`。
+4. 找到名称为 `MFRC522`、作者显示为 `GithubCommunity` 的库后点击 **Install**。建议确认库名称和作者信息，避免安装到同名的其他库。
+5. 安装完成后重启 Arduino IDE，再重新编译项目。
+
+安装后，代码中的以下头文件就可以被正常识别：
+
+```cpp
+#include <MFRC522.h>
+```
+
+参考教程：
+
+- [Arduino 官方：在 Arduino IDE 2 中安装库](https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-installing-a-library)
+- [Arduino IDE 添加库文件教程（CSDN）](https://blog.csdn.net/2301_80596293/article/details/158538480)
