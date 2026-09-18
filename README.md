@@ -12,6 +12,16 @@
 | 4 | 13.56 MHz RFID 读卡 | CZ321 | MFRC-522 RC522 RFID 射频 IC 卡感应模块读卡刷卡，送 S50 复旦卡 PN532 | [打开淘宝商品](https://e.tb.cn/h.8sSJT6o17CTNK5y?tk=o3lXTQQTpKy) | ![RC522 RFID 读卡模块](https://i5.walmartimages.com/asr/4ea8a7a9-ca5c-421a-b58f-6b036af36389.659500a3dea43b0f21770f24f553c7b4.jpeg?odnBg=FFFFFF&odnHeight=612&odnWidth=612) | 常见 SPI 接口 RFID 读卡模块，适合与 Arduino 配合测试 |
 | 5 | 项目主控开发板 | CZ007 | zave 适用 Arduino Nano UNO 开发板套件 R3 改进版 ATmega328P 单片机 | [打开淘宝商品](https://e.tb.cn/h.8udbibh7TAbVOjM?tk=TewSTQQTAGj) | ![Arduino Nano ATmega328P 开发板](https://cdn-cloudflare.meidianbang.cn/comdata/51404/product/20180605152111759825D35AA31156_b.jpg) | 用于运行项目固件并控制 RFID / NFC 相关模块 |
 
+## 硬件准备检查
+
+- [ ] NFC / CUID 卡片或卡贴
+- [ ] 40P 杜邦线
+- [ ] USB A 公对母数据线
+- [ ] RC522 RFID 读卡模块
+- [ ] Arduino Nano / ATmega328P 开发板
+- [ ] 确认开发板电压、接口定义和模块接线方式
+- [ ] 确认项目涉及的卡片读写行为符合当地法律、设备管理规定和授权范围
+
 ## RC522 与 Arduino Uno 接线方式
 
 左侧为 RFID-RC522 引脚，右侧为 Arduino Uno 引脚。
@@ -79,13 +89,3 @@ Port: "COMx"
 其中 `COMx` 是电脑实际分配给开发板的端口号。
 
 如果 `Tools → Port` 中没有任何端口，请检查 USB 数据线、USB 接口和开发板电源指示灯；兼容版开发板还可能需要安装对应的 USB 转串口驱动。
-
-## 硬件准备检查
-
-- [ ] NFC / CUID 卡片或卡贴
-- [ ] 40P 杜邦线
-- [ ] USB A 公对母数据线
-- [ ] RC522 RFID 读卡模块
-- [ ] Arduino Nano / ATmega328P 开发板
-- [ ] 确认开发板电压、接口定义和模块接线方式
-- [ ] 确认项目涉及的卡片读写行为符合当地法律、设备管理规定和授权范围
